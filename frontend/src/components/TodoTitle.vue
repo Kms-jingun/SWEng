@@ -1,31 +1,31 @@
 <template>
     <div class="title">
         <p class="title__text">
-      <span class="title__message">Good {{ message }},</span>
-      <span
-        v-on:keyup.enter="handleEnter"
-        v-on:blur="handleBlur"
-        class="title__name"
-        ref="test"
-        contenteditable="true"
-      >{{ this.userName }}</span>
-      .
-    </p>
-    <p class="title__task">
-      <span class="title__task-top">오늘의 할 일은</span>
-      <span class="title__task-count">
-        <em class="title__task-left">{{ this.todoItemsCount.left }}</em>
-        <em
-          v-if="this.todoItemsCount.total"
-          class="title__task-total"
-        >&nbsp;/ {{ this.todoItemsCount.total }}</em>
-      </span>
-      <span class="title__task-bottom">
-        <span v-if="this.todoItemsCount.total > 1"></span>
-        <span v-else></span> 입니다 !
-      </span>
-      <span class="title__task-info"></span>
-    </p>
+            <span class="title__message">Good {{ message }},</span>
+            <span
+                v-on:keyup.enter="handleEnter"
+                v-on:blur="handleBlur"
+                class="title__name"
+                ref="test"
+                contenteditable="true"
+            >{{ this.userName }}</span>
+            .
+        </p>
+        <p class="title__task">
+            <span class="title__task-top">오늘의 할 일은</span>
+            <span class="title__task-count">
+                <em class="title__task-left">{{ this.todoItemsCount.left }}</em>
+                <em
+                    v-if="this.todoItemsCount.total"
+                    class="title__task-total"
+                >&nbsp;/ {{ this.todoItemsCount.total }}</em>
+            </span>
+            <span class="title__task-bottom">
+                <span v-if="this.todoItemsCount.total > 1"></span>
+                <span v-else></span> 입니다 !
+            </span>
+            <span class="title__task-info"></span>
+        </p>
     </div>
 </template>
 

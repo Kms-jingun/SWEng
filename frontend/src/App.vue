@@ -57,6 +57,7 @@ export default {
   methods: {
     // 입력없이 엔터 혹은 입력 버튼이 클릭되거나, 중복된 값이 입력될 경우,
     // 인자로 받은 text를 경고창에 띄운다.
+    // text값은 TodoInput 컴포넌트에서 받은 값이다.
     showModal(text) {
       this.modalText = text;
       this.modalVisible = !this.modalVisible;

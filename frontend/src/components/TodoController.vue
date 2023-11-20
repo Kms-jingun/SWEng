@@ -24,6 +24,7 @@
             };
         },
         methods: {
+            // clearTodo가 호출되면 mutations의 clearAllItem을 호출한다.
             ...mapMutations({
                 clearTodo: "clearAllItem"
             }),

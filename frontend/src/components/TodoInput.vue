@@ -35,6 +35,9 @@
             ...mapGetters(["storedTodoItems", "storedTodoItemsCount"])
         },
         methods: {
+
+            // 중복되는 내용이거나, 빈 내용일 경우, 상황에 맞는 text값을 전달하면서 alertModal을 호출한다.
+            // 이후 동작은 App.vue에서 나타난다.
             addTodoItem() {
                 //중복되는 내용인 경우
                 const oldItems = this.storedTodoItems;
