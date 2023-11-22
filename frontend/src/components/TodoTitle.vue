@@ -39,6 +39,7 @@
             };
         },
         methods: {
+            // 로그인 후 상단의 나타나는 사용자 이름이 포커스아웃될 시(클릭되었을 때) 입력한 이름으로 변경한다.
             handleBlur(e) {
                 const originalName = this.userName;
                 const newName = e.target.innerText;

@@ -1,3 +1,6 @@
+
+<!-- 경고창 등을 담당
+현재 컴포넌트는 원형으로 App.vue에서 이를 오버라이드하여 사용한다. -->
 <template>
     <transition name="modal" appear>
         <div class="modal modal__dim" v-on:click.self="$emit('close')">

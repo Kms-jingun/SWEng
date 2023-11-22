@@ -9,6 +9,7 @@
 
         <!-- 사용자의 이름을 입력받아 등록한다(addUserName 호출)
         입력된 이름은 userName에 저장된다. -->
+        <!-- 이후 이 컴포넌트를 로그인 컴포넌트로 수정할 예정 -->
         <div className="main-input">
             <input
                 className="hello__input"
