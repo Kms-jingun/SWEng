@@ -87,9 +87,13 @@ const sortTodoOldest = (state) => {
     storage.fetch(state.todoOldestOrder);
 }
 // 사용자 이름 추가
+// 비밀번호 추가됨
 const setUserName = (state, userName) => {
-    localStorage.setItem("userName", userName);
+    localStorage.setItem("userName", JSON.stringify(userName));
+    // localStorage.setItem("password", JSON.stringify(password));
     state.userName = userName;
+    // state.password = password;
+
 }
 
 export { addOneItem, removeOneItem, toggleOneItem, clearAllItem, sortTodoLatest, sortTodoOldest, setUserName };

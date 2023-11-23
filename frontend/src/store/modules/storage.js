@@ -36,6 +36,13 @@ const storage = {
             const userName = localStorage.getItem("userName");
             return userName;
         }
+    },
+    fetchPw() {
+        // 로컬 스토리지의 비밀번호(생년월일) 가져오기(임시)
+        if(localStorage.getItem("password")) {
+            const password = localStorage.getItem("password");
+            return password;
+        }
     }
 }
 
