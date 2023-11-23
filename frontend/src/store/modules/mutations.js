@@ -87,12 +87,54 @@ const sortTodoOldest = (state) => {
     storage.fetch(state.todoOldestOrder);
 }
 // 사용자 이름 추가
-// 비밀번호 추가됨
-const setUserName = (state, userName) => {
-    localStorage.setItem("userName", JSON.stringify(userName));
-    // localStorage.setItem("password", JSON.stringify(password));
-    state.userName = userName;
-    // state.password = password;
+// 로그인 함수
+// 프론트에서 입력된 이름, 생년월일을 서버에 보내 기존 유저일 경우, 유저의 이름을 state.userName에 저장
+const setUserName = (state, loginInfo) => {
+    // 기존의 코드 + 테스트용
+    var userName = loginInfo.id;
+    var password = loginInfo.pw;
+    if(userName==="" || password==="") { 
+        // console.log("로그인 실패!");
+        alert("로그인 실패!");
+    }
+    else {
+        localStorage.setItem("userName", JSON.stringify(userName));
+        localStorage.setItem("password", JSON.stringify(password));
+        state.userName = userName;
+    }
+
+    // 입력값 유효성 체크, 유효하지 않으면 경고창
+    // 유효한 값이면 api 호출 통해 서버에 전달
+    // var userName = loginInfo.id;
+    // var password = loginInfo.pw;
+
+    // 입력된 정보의 유효성 체크, 유효하지 않을 시 경고창 생성
+    // 조건은 다시 확인할 것
+    // 유효성 검사는 백에서 할 것인가? 프론트에서 할 것인가?
+    // if(userName==="" || password==="") { 
+    //     console.log("로그인 실패!");
+    // }
+    // else {
+    //     var data = {
+    //         id: userName,
+    //         pw: password
+    //     }
+    //     const apiUrl = "";
+    //     axios
+    //         .post(apiUrl, JSON.stringify(data))
+    //         .then(res => {
+    //             if(res.data == "ok") {
+    //                 // 로그인에 성공할 시, 1. state.userName에 저장, 2. 화면전환(isLogin 등의 변수에 상태 저장)
+    //                 state.userName = userName;
+    //                 state.isLogin = true;
+    //                 storage.fetch(state.todoOldestOrder);
+    //             }
+    //             // 시스템의 문제로 인한 로그인 실패
+    //             else {
+    //                 alert("로그인 실패");
+    //             }
+    //         });
+    // }
 
 }
 

@@ -9,9 +9,17 @@ app.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
+        // todolist 목록
         todoItems: storage.fetch(),
+
+        // 사용자 이름
         userName: storage.fetchName(),
-        todoOldestOrder: true
+
+        // 정렬 기준
+        todoOldestOrder: true,
+
+        // 로그인 상태
+        isLogin: false
     },
     getters: getters,
     mutations: mutations

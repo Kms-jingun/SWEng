@@ -26,7 +26,8 @@
                 <span className="blind">Enter</span>
             </button>
         </div> -->
-        <form @submit.prevent="addUserName(username, password)">
+        <!-- 이름과 생년월일을 입력받아 객체로 묶어 addUserName 호출 -->
+        <form @submit.prevent="addUserName({id: username, pw: password})">
             <div>
                 <label for="username">id: </label>
                 <input id="username" type="text" v-model="username" />
