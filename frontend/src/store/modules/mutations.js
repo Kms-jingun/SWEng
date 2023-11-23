@@ -93,35 +93,16 @@ const setUserName = (state, loginInfo) => {
     // 기존의 코드 + 테스트용
     var userName = loginInfo.id;
     var password = loginInfo.pw;
-    if(userName==="" || password==="") { 
-        // console.log("로그인 실패!");
-        alert("로그인 실패!");
-    }
-    else {
-        localStorage.setItem("userName", JSON.stringify(userName));
-        localStorage.setItem("password", JSON.stringify(password));
-        state.userName = userName;
-    }
 
-    // 입력값 유효성 체크, 유효하지 않으면 경고창
-    // 유효한 값이면 api 호출 통해 서버에 전달
-    // var userName = loginInfo.id;
-    // var password = loginInfo.pw;
+    localStorage.setItem("userName", JSON.stringify(userName));
+    localStorage.setItem("password", JSON.stringify(password));
+    state.userName = userName;
+    state.isLogin = true;
 
-    // 입력된 정보의 유효성 체크, 유효하지 않을 시 경고창 생성
-    // 조건은 다시 확인할 것
-    // 유효성 검사는 백에서 할 것인가? 프론트에서 할 것인가?
-    // if(userName==="" || password==="") { 
-    //     console.log("로그인 실패!");
-    // }
-    // else {
-    //     var data = {
-    //         id: userName,
-    //         pw: password
-    //     }
-    //     const apiUrl = "";
+    // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
+    // const apiUrl = "";
     //     axios
-    //         .post(apiUrl, JSON.stringify(data))
+    //         .post(apiUrl, JSON.stringify(loginInfo))
     //         .then(res => {
     //             if(res.data == "ok") {
     //                 // 로그인에 성공할 시, 1. state.userName에 저장, 2. 화면전환(isLogin 등의 변수에 상태 저장)
@@ -134,7 +115,6 @@ const setUserName = (state, loginInfo) => {
     //                 alert("로그인 실패");
     //             }
     //         });
-    // }
 
 }
 

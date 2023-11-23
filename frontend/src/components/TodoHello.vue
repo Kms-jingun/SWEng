@@ -26,8 +26,9 @@
                 <span className="blind">Enter</span>
             </button>
         </div> -->
-        <!-- 이름과 생년월일을 입력받아 객체로 묶어 addUserName 호출 -->
-        <form @submit.prevent="addUserName({id: username, pw: password})">
+        <!-- 로그인 폼 -->
+        <!-- 로그인 버튼을 누르거나 엔터가 눌리면 submitForm 호출 -->
+        <form @submit.prevent="submitForm(username, password)">
             <div>
                 <label for="username">id: </label>
                 <input id="username" type="text" v-model="username" />
@@ -55,18 +56,26 @@
                 // addUserName이 호출되면 mutations의 setUserName을 호출한다.
                 addUserName: "setUserName"
             }),
-            // submitForm() {
-            //     console.log(this.username, this.password);
-            //     // null 체크, 빈칸일 시엔 경고창 띄우기
-            //     // 올바른 값일 시, 서버에 전송
-            //     if(!this.username || !this.password) {
-            //         // 경고창 띄우기
-            //         console.log("빈칸")
-            //     }
+            // 입력값을 서버에 전달하기 전, 값의 유효성을 확인
+            // 조건에 맞지 않으면 경고창
+            // 유효한 입력인 경우, addUserName을 호출
+            submitForm(username, password) {
+                // null 체크, 빈칸일 시엔 경고창 띄우기
+                // 올바른 값일 시, 서버에 전송
+                if(username==="" || password==="") {
+                    // 경고창 띄우기
+                    const text = "로그인 실패!"
+                    this.$emit("alertModal", text);
+                }
+                else {
+                    // this.$store.commit("setUserName", {id: username, pw: password});
+                    this.addUserName({id: username, pw: password});
+                }
                 
             // }
+            }
         }
-    };
+    }
 </script>
 
 <style lang="scss">

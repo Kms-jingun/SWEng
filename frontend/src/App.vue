@@ -3,28 +3,23 @@
     <div class="top">
       <TodoHeader/>
 
-      <!-- 저장된 사용자 이름이 있을 때 바로 TodoTitle, TodoInput 컴포넌트를 렌더링한다. -->
-      <!-- 바로 다음 주석처리된 코드는 로그인 여부로 렌더링을 결정 -->
-      <!-- <div v-if="this.isLogin">
+      <!-- 로그인이 완료된 상태일 때 TodoTitle, TodoInput 컴포넌트를 렌더링한다. -->
+      <div v-if="this.isLogIn">
         <TodoTitle />
-        <TodoInput @alertModal="showModal" @reload="reload">
-      </div> -->
-      <div v-if="this.storedName">
-        <TodoTitle />
-        <TodoInput v-on:alertModal="showModal" @reload="reload" />
+        <TodoInput @alertModal="showModal" @reload="reload"/>
       </div>
 
-      <!-- 저장된 사용자 이름이 없을 때, TodoHello 컴포넌트를 렌더링한다.
+      <!-- 로그인 상태가 아닐 때, TodoHello 컴포넌트를 렌더링한다.
       이 부분이 추후 회원가입 기능 구현 시 만져야할 부분 -->
       <div v-else>
-        <TodoHello />
+        <TodoHello v-on:alertModal="showModal" @reload="reload"/>
       </div>
     </div>
     <div class="body">
 
       <!-- 등록된 사용자일 경우 TodoController, TodoList 컴포넌트를 렌더링한다.
       DB에 저장된 아이템의 목록과 정렬 선택창 등을 표시 -->
-      <div v-if="this.storedName">
+      <div v-if="this.isLogIn">
         <TodoController />
         <TodoList ref="list" />
       </div>
@@ -57,7 +52,7 @@ export default {
   },
   computed: {
     // 시작 시, getters의 storedName을 호출하여 등록된 사용자가 있는지 확인한다.
-    ...mapGetters(["storedName", "isLogin"])
+    ...mapGetters(["storedName", "isLogIn"])
   },
   methods: {
     // 입력없이 엔터 혹은 입력 버튼이 클릭되거나, 중복된 값이 입력될 경우,

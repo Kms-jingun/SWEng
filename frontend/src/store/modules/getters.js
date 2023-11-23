@@ -8,8 +8,8 @@ const storedTodoItemsCount = (state, getters) => {
     return getters.storedTodoItems.length;
 }
 
-const isLogin = (state) => {
+const isLogIn = (state) => {
     return state.isLogin;
 }
 
-export { storedTodoItems, storedName, storedTodoItemsCount, isLogin };
+export { storedTodoItems, storedName, storedTodoItemsCount, isLogIn };
