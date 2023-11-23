@@ -19,6 +19,15 @@
                 v-model="userName"
                 v-on:keypress.enter="addUserName(userName)"
             />
+            <input
+                className="hello__input"
+                type="text"
+                id="user-name"
+                placeholder="Let me know your name"
+                v-model="userName"
+                v-on:keypress.enter="addUserName(userName)"
+            />
+
             <button className="hello__button">
                 <span className="blind">Enter</span>
             </button>
