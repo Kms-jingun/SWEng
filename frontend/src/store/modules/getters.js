@@ -12,4 +12,8 @@ const isLogIn = (state) => {
     return state.isLogin;
 }
 
-export { storedTodoItems, storedName, storedTodoItemsCount, isLogIn };
+const isRegister = (state) => {
+    return state.isRegister;
+}
+
+export { storedTodoItems, storedName, storedTodoItemsCount, isLogIn, isRegister };

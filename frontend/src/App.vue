@@ -8,6 +8,9 @@
         <TodoTitle />
         <TodoInput @alertModal="showModal" @reload="reload"/>
       </div>
+      <div v-else-if="this.isRegister">
+        <TodoRegister @alertModal="showModal" @reload="reload"/>
+      </div>
 
       <!-- 로그인 상태가 아닐 때, TodoHello 컴포넌트를 렌더링한다.
       이 부분이 추후 회원가입 기능 구현 시 만져야할 부분 -->
@@ -40,6 +43,7 @@ import TodoInput from './components/TodoInput.vue';
 import TodoList from './components/TodoList.vue';
 import TodoTitle from './components/TodoTitle.vue';
 import TodoModal from './components/common/TodoModal';
+import TodoRegister from './components/TodoRegister.vue';
 import { mapGetters } from "vuex";
 
 export default {
@@ -52,12 +56,12 @@ export default {
   },
   computed: {
     // 시작 시, getters의 storedName을 호출하여 등록된 사용자가 있는지 확인한다.
-    ...mapGetters(["storedName", "isLogIn"])
+    ...mapGetters(["storedName", "isLogIn", "isRegister"])
   },
   methods: {
-    // 입력없이 엔터 혹은 입력 버튼이 클릭되거나, 중복된 값이 입력될 경우,
+    // 입력없이 엔터 혹은 입력 버튼이 클릭되거나, 중복된 값이 입력될 경우, 잘못된 값이 입력되는 등의 경우
     // 인자로 받은 text를 경고창에 띄운다.
-    // text값은 TodoInput 컴포넌트에서 받은 값이다.
+    // text값은 alertModal을 호출한 컴포넌트에서 받은 값이다.
     showModal(text) {
       this.modalText = text;
       this.modalVisible = !this.modalVisible;
@@ -74,21 +78,12 @@ export default {
     TodoInput,
     TodoList,
     TodoTitle,
-    TodoModal
+    TodoModal,
+    TodoRegister
   }
 }
 </script>
 
-<style lang="scss">
-@import "./assets/style/_reset";
-.top {
-  width: 100%;
-  min-height: 43.6rem;
-  padding: 0 $padding 4.5rem;
-  background-image: linear-gradient(145deg, #3770cc 20%, #ce91c9 84%);
-}
-.body {
-  padding: 3rem $padding;
-  background-color: #efefef;
-}
+<style>
+
 </style>

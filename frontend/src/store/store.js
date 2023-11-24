@@ -20,7 +20,10 @@ export const store = new Vuex.Store({
         todoOldestOrder: true,
 
         // 로그인 상태
-        isLogin: false
+        isLogin: false,
+
+        // 회원가입 화면 렌더링 여부
+        isRegister: false
     },
     getters: getters,
     mutations: mutations,

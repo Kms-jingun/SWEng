@@ -118,4 +118,9 @@ const setUserName = (state, loginInfo) => {
 
 }
 
-export { addOneItem, removeOneItem, toggleOneItem, clearAllItem, sortTodoLatest, sortTodoOldest, setUserName };
+const setIsRegister = (state) => {
+    // 회원가입 화면의 렌더링 여부를 결정하는 변수의 값을 수정한다.
+    state.isRegister = !state.isRegister;
+}
+
+export { addOneItem, removeOneItem, toggleOneItem, clearAllItem, sortTodoLatest, sortTodoOldest, setUserName, setIsRegister };

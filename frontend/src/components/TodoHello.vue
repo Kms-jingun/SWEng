@@ -38,9 +38,12 @@
                 <input id="password" type="password" v-model="password" />
             </div>
             <button type="submit">
-                <span>login</span>
+                <span>로그인</span>
             </button>
         </form>
+        <button @click="setIsRegister">
+            <span>회원가입</span>
+        </button>
     </div>
 </template>
 
@@ -56,7 +59,8 @@
         methods: {
             ...mapMutations({
                 // addUserName이 호출되면 mutations의 setUserName을 호출한다.
-                addUserName: "setUserName"
+                addUserName: "setUserName",
+                setIsRegister: "setIsRegister"
             }),
             // 입력값을 서버에 전달하기 전, 값의 유효성을 확인
             // 조건에 맞지 않으면 경고창
@@ -73,53 +77,11 @@
                     // this.$store.commit("setUserName", {id: username, pw: password});
                     this.addUserName({id: username, pw: password});
                 }
-                
-            // }
             }
         }
     }
 </script>
 
-<style lang="scss">
-.hello {
-    max-width: $max-width;
-    margin: 0 auto;
-    letter-spacing: 0.03rem;
-    color: #fff;
-    label {
-        display: none;
-    }
-    &__guide {
-        padding-top: 2.4rem;
-        margin-bottom: 6rem;
-        font-size: 1.6rem;
-        line-height: 1.75;
-        letter-spacing: 0.03rem;
-    }
-    &__guide-text {
-        display: block;
-    }
-    &__ask {
-        font-size: 2.8rem;
-        font-weight: bold;
-        margin-bottom: 4rem;
-    }
-}
+<style>
 
-// 에니메이션 관리
-.hello {
-    &__guide-text {
-        @for $i from 1 through 2 {
-            &:nth-child(#{$i}) {
-                @include animation(fadeShow, 450ms, 1, #{$i * 200}ms);
-            }
-        }
-    }
-    &__ask {
-        @include animation(fadeShow, 750ms, 1, 900ms)
-    }
-    .main-input {
-        @include animation(fadeShow, 850ms, 1, 1100ms)
-    }
-}
 </style>

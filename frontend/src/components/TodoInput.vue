@@ -69,13 +69,6 @@
     };
 </script>
 
-<style lang="scss">
-.add {
-    position: relative;
-    max-width: $max-width;
-    margin: 0 auto;
-    .main-input {
-        @include animation(fadeShow, 800ms, 1, 900ms);
-    }
-}
+<style>
+
 </style>
