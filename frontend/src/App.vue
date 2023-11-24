@@ -8,12 +8,12 @@
         <TodoTitle />
         <TodoInput @alertModal="showModal" @reload="reload"/>
       </div>
+      <!-- 로그인 상태가 아닐 때, 회원가입 상황인 경우, TodoRegister 컴포넌트를 렌더링한다. -->
       <div v-else-if="this.isRegister">
         <TodoRegister @alertModal="showModal" @reload="reload"/>
       </div>
 
-      <!-- 로그인 상태가 아닐 때, TodoHello 컴포넌트를 렌더링한다.
-      이 부분이 추후 회원가입 기능 구현 시 만져야할 부분 -->
+      <!-- 로그인 상황인 경우, TodoHello 컴포넌트를 렌더링한다. -->
       <div v-else>
         <TodoHello v-on:alertModal="showModal" @reload="reload"/>
       </div>

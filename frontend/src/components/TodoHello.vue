@@ -5,7 +5,7 @@
             <span className="hello__guide-text">I’m going to remember your tasks.</span>
         </p>
         <p className="hello__ask">What is your name?</p>
-        <label htmlFor="user-name">Name</label>
+        <label htmlFor="user-name">로그인</label>
 
         <!-- 사용자의 이름을 입력받아 등록한다(addUserName 호출)
         입력된 이름은 userName에 저장된다. -->
@@ -41,9 +41,11 @@
                 <span>로그인</span>
             </button>
         </form>
-        <button @click="setIsRegister">
-            <span>회원가입</span>
-        </button>
+        <div class="btn">
+            <button @click="setIsRegister">
+                <span>회원가입</span>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -75,6 +77,7 @@
                 }
                 else {
                     // this.$store.commit("setUserName", {id: username, pw: password});
+                    // 서버와의 통신을 컴포넌트에서 처리할 것인가? mutations에서 처리할 것인가?
                     this.addUserName({id: username, pw: password});
                 }
             }
@@ -83,5 +86,10 @@
 </script>
 
 <style>
-
+.btn {
+    justify-content: center;
+}
+div {
+    text-align: center;
+}
 </style>

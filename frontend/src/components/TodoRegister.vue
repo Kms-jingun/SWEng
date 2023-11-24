@@ -14,6 +14,9 @@
                 <span>가입</span>
             </button>
         </form>
+        <button @click="setIsRegister">
+            <span>취소</span>
+        </button>
     </div>
 </template>
 
