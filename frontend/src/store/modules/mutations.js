@@ -108,6 +108,7 @@ const setIsRegister = (state) => {
 // 로그아웃 상태로 전환
 const logOut = (state) => {
     state.isLogin = false;
+    state.userName = "";
 }
 
 export { addOneItem, removeOneItem, toggleOneItem, clearAllItem, sortTodoLatest, sortTodoOldest, setUserName, setIsRegister, logOut };

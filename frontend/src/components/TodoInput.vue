@@ -43,7 +43,7 @@
                 const oldItems = this.storedTodoItems;
                 for(let i=0; i<this.storedTodoItemsCount; i++) {
                     if(oldItems[i].item === this.newTodoItem) {
-                        const text = "I think you've already had the task.";
+                        const text = "같은 내용이 이미 존재합니다.";
                         this.$emit("alertModal", text);
                         return false;
                     }
@@ -51,7 +51,7 @@
 
                 //빈 내용인 경우
                 if(this.newTodoItem === "") {
-                    const text = "The form is empty. Please note your task.";
+                    const text = "내용을 입력해주시기 바랍니다.";
                     this.$emit("alertModal", text);
                     this.clearInput();
                     return false;

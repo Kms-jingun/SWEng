@@ -41,6 +41,7 @@ import { mapMutations } from 'vuex';
                     this.$emit("alertModal", text);
                 }
                 else {
+                    // 주석처리된 코드는 서버와 연동 시 필요함
                     // var data = {id: username, pw: password};
                     // const apiUrl="";
                     // axios

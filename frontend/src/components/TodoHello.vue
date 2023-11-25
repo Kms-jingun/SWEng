@@ -1,8 +1,8 @@
 <template>
     <div className="hello">
         <p className="hello__guide">
-            <span className="hello__guide-text">Nice to meet you!</span>
-            <span className="hello__guide-text">I’m going to remember your tasks.</span>
+            <span className="hello__guide-text">반갑습니다!<br></span>
+            <span className="hello__guide-text">당신의 리스트를 불러오겠습니다.</span>
         </p>
         <p className="hello__ask">What is your name?</p>
         <label htmlFor="user-name">로그인</label>
