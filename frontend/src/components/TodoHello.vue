@@ -30,11 +30,11 @@
         <!-- 로그인 버튼을 누르거나 엔터가 눌리면 submitForm 호출 -->
         <form @submit.prevent="submitForm(username, password)">
             <div>
-                <label for="username">id: </label>
+                <label for="username">이름: </label>
                 <input id="username" type="text" v-model="username" />
             </div>
             <div>
-                <label for="password">pw: </label>
+                <label for="password">생년월일: </label>
                 <input id="password" type="password" v-model="password" />
             </div>
             <button type="submit">
@@ -51,6 +51,7 @@
 
 <script>
     import { mapMutations } from "vuex"
+    // import axios from "axios";
     export default {
         data() {
             return {
@@ -76,9 +77,24 @@
                     this.$emit("alertModal", text);
                 }
                 else {
-                    // this.$store.commit("setUserName", {id: username, pw: password});
-                    // 서버와의 통신을 컴포넌트에서 처리할 것인가? mutations에서 처리할 것인가?
-                    this.addUserName({id: username, pw: password});
+                    // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
+                    var data = {id: username, pw: password};
+                    // 주석처리된 코드는 서버와 연동 시 필요
+                    // const apiUrl = "";
+                    // axios
+                    //     .post(apiUrl, JSON.stringify(data))
+                    //     .then(res => {
+                    //         if(res.data == "ok") {
+                    //             // 로그인에 성공할 시, 생성한 객체를 인자로 하여 addUserName 호출
+                    //             this.addUserName(data);
+                    //         }
+                    //             // 시스템의 문제로 인한 로그인 실패
+                    //         else {
+                    //             const text = "로그인 실패";
+                    //             this.$emit("alertModal", text);
+                    //         }
+                    //     });
+                    this.addUserName(data);
                 }
             }
         }

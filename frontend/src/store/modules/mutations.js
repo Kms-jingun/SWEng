@@ -88,7 +88,7 @@ const sortTodoOldest = (state) => {
 }
 // 사용자 이름 추가
 // 로그인 함수
-// 프론트에서 입력된 이름, 생년월일을 서버에 보내 기존 유저일 경우, 유저의 이름을 state.userName에 저장
+// 프론트에서 입력된 이름, 생년월일을 서버에 보내 등록된 유저일 경우, 유저의 이름을 state.userName에 저장
 const setUserName = (state, loginInfo) => {
     // 기존의 코드 + 테스트용
     var userName = loginInfo.id;
@@ -98,29 +98,16 @@ const setUserName = (state, loginInfo) => {
     localStorage.setItem("password", JSON.stringify(password));
     state.userName = userName;
     state.isLogin = true;
-
-    // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
-    // const apiUrl = "";
-    //     axios
-    //         .post(apiUrl, JSON.stringify(loginInfo))
-    //         .then(res => {
-    //             if(res.data == "ok") {
-    //                 // 로그인에 성공할 시, 1. state.userName에 저장, 2. 화면전환(isLogin 등의 변수에 상태 저장)
-    //                 state.userName = userName;
-    //                 state.isLogin = true;
-    //                 storage.fetch(state.todoOldestOrder);
-    //             }
-    //             // 시스템의 문제로 인한 로그인 실패
-    //             else {
-    //                 alert("로그인 실패");
-    //             }
-    //         });
-
 }
 
+// 회원가입 화면의 렌더링 여부를 결정하는 변수의 값을 수정한다.
 const setIsRegister = (state) => {
-    // 회원가입 화면의 렌더링 여부를 결정하는 변수의 값을 수정한다.
     state.isRegister = !state.isRegister;
 }
 
-export { addOneItem, removeOneItem, toggleOneItem, clearAllItem, sortTodoLatest, sortTodoOldest, setUserName, setIsRegister };
+// 로그아웃 상태로 전환
+const logOut = (state) => {
+    state.isLogin = false;
+}
+
+export { addOneItem, removeOneItem, toggleOneItem, clearAllItem, sortTodoLatest, sortTodoOldest, setUserName, setIsRegister, logOut };
