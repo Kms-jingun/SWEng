@@ -7,7 +7,7 @@ const addOneItem = async (state, todoItem) => {
     /* 서버 통신 */
     var jsonValue = {
         item: todoItem,
-        date: `${getDate().date} ${getDate().week}`,
+        date: `${getDate().date} ${getDate().week} ${String(getDate().hour).padStart(2, "0")}:${String(getDate().minute).padStart(2, "0")}`,
         time: getDate().time,
         completed: false
     }

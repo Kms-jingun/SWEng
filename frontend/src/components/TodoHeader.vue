@@ -19,7 +19,7 @@
         },
         created() {
             // 시작 시 getDate() 객체를 통해 날짜, 요일 등을 계산하여 저장한다.
-            this.timestamp = `${getDate().month}/${getDate().date} ${getDate().week} ${getDate().hour}:${getDate().minute}`
+            this.timestamp = `${getDate().month}/${getDate().date} ${getDate().week} ${String(getDate().hour).padStart(2, "0")}:${String(getDate().minute).padStart(2, "0")}`
         }
     };
 </script>
