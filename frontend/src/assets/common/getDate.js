@@ -17,6 +17,7 @@ export default () => {
     const week = weekList[now.getDay()];
     const time = now.getTime();
     const hour = now.getHours();
+    const minute = now.getMinutes();
     let daytime = "";
 
     if(hour < 12) {
@@ -34,7 +35,9 @@ export default () => {
         date,
         week,
         time,
-        daytime
+        daytime,
+        hour,
+        minute
     }
     return dateInfo
 }

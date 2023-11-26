@@ -3,12 +3,12 @@
         <p>회원가입</p>
         <form @submit.prevent="submitForm(username, password)">
             <div>
-                <label for="username">id: </label>
+                <label for="username">이름: </label>
                 <input id="username" type="text" v-model="username" />
             </div>
             <div>
-                <label for="password">pw: </label>
-                <input id="password" type="password" v-model="password" />
+                <label for="password">생년월일: </label>
+                <input id="password" placeholder="ex)990319" type="password" v-model="password" />
             </div>
             <button type="submit">
                 <span>가입</span>
@@ -35,9 +35,11 @@ import { mapMutations } from 'vuex';
                 setIsRegister: "setIsRegister"
             }),
             submitForm(username, password) {
-                if(username==="" || password==="") {
+                // 생년월일 정규표현식
+                const validatePw = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))$/
+                if(username==="" || password==="" || password.length != 6 || !validatePw.test(password)) {
                     // 경고창 띄우기
-                    const text = "회원가입 실패!"
+                    const text = "입력된 값이 유효하지 않습니다."
                     this.$emit("alertModal", text);
                 }
                 else {
@@ -52,6 +54,11 @@ import { mapMutations } from 'vuex';
                     //             const text = "회원가입 완료"
                     //             this.$emit("alertModal", text);
                     //             this.setIsRegister();
+                    //         }
+                    //         else {
+                    //             // 회원가입에 실패한 경우(이미 사용자가 존재하는 경우)
+                    //             const text = "이미 등록된 사용자입니다."
+                    //             this.$emit("alertModal", text);
                     //         }
                     //     });
 

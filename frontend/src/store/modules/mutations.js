@@ -90,13 +90,9 @@ const sortTodoOldest = (state) => {
 // 로그인 함수
 // 프론트에서 입력된 이름, 생년월일을 서버에 보내 등록된 유저일 경우, 유저의 이름을 state.userName에 저장
 // 이후 해당 유저의 리스트를 가져온다.
-const setUserName = (state, loginInfo) => {
-    // 기존의 코드 + 테스트용
-    var userName = loginInfo.id;
-    var password = loginInfo.pw;
-
+const setUserName = (state, userName) => {
+    // 테스트, 서버 대신 로컬 서버에 유저의 이름을 저장한다.
     localStorage.setItem("userName", JSON.stringify(userName));
-    localStorage.setItem("password", JSON.stringify(password));
     state.userName = userName;
     // storage.fetch(state.todoOldestOrder);
     state.isLogin = true;

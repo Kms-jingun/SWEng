@@ -1,14 +1,14 @@
 <template>
     <div class="title">
         <p class="title__text">
-            <span class="title__message">Good {{ message }},</span>
+            <span class="title__message">반갑습니다,</span>
             <span
                 v-on:keyup.enter="handleEnter"
                 v-on:blur="handleBlur"
                 class="title__name"
                 ref="test"
                 contenteditable="true"
-            >{{ this.userName }}</span>
+            >{{ this.userName }}님!</span>
             .
         </p>
         <p class="title__task">

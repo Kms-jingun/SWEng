@@ -4,7 +4,7 @@
             <span className="hello__guide-text">반갑습니다!<br></span>
             <span className="hello__guide-text">당신의 리스트를 불러오겠습니다.</span>
         </p>
-        <p className="hello__ask">What is your name?</p>
+        <!-- <p className="hello__ask">What is your name?</p> -->
         <label htmlFor="user-name">로그인</label>
 
         <!-- 사용자의 이름을 입력받아 등록한다(addUserName 호출)
@@ -35,7 +35,7 @@
             </div>
             <div>
                 <label for="password">생년월일: </label>
-                <input id="password" type="password" v-model="password" />
+                <input id="password" placeholder="ex)990319" type="password" v-model="password" />
             </div>
             <button type="submit">
                 <span>로그인</span>
@@ -71,14 +71,17 @@
             submitForm(username, password) {
                 // null 체크, 빈칸일 시엔 경고창 띄우기
                 // 올바른 값일 시, 서버에 전송
-                if(username==="" || password==="") {
+
+                // 생년월일 정규표현식
+                const validatePw = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))$/
+                if(username==="" || password==="" || password.length != 6 || !validatePw.test(password)) {
                     // 경고창 띄우기
-                    const text = "로그인 실패!"
+                    const text = "입력된 값이 유효하지 않습니다."
                     this.$emit("alertModal", text);
                 }
                 else {
                     // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
-                    var data = {id: username, pw: password};
+                    // var data = {id: username, pw: password};
                     // 주석처리된 코드는 서버와 연동 시 필요
                     // const apiUrl = "";
                     // axios
@@ -88,13 +91,13 @@
                     //             // 로그인에 성공할 시, 생성한 객체를 인자로 하여 addUserName 호출
                     //             this.addUserName(data);
                     //         }
-                    //             // 시스템의 문제로 인한 로그인 실패
+                    //             // 사용자가 존재하지 않아 로그인 실패
                     //         else {
-                    //             const text = "로그인 실패";
+                    //             const text = "존재하지 않는 사용자입니다.";
                     //             this.$emit("alertModal", text);
                     //         }
                     //     });
-                    this.addUserName(data);
+                    this.addUserName(username);
                 }
             }
         }
