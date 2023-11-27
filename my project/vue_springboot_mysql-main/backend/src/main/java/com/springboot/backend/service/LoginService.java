@@ -27,11 +27,13 @@ public class LoginService {
 
     /**
      * 로그인 체크
+     * 만약 name이 없다면 -2, name은 있는데 birth가 없다면 -1 
+     * 정상적으로 로그인이 된다면 해당 유저의 id 반환
      */
-    public boolean isExist(String name, String birth){
+    public Long isExist(String name, String birth){
         long id = loginRepository.findByName(name);
         if(id == -1){
-            return false;
+            return -2;
         }else{
             return loginRepository.checkBirth(id,birth);
         }
