@@ -19,7 +19,22 @@
         },
         created() {
             // 시작 시 getDate() 객체를 통해 날짜, 요일 등을 계산하여 저장한다.
-            this.timestamp = `${getDate().month}/${getDate().date} ${getDate().week} ${String(getDate().hour).padStart(2, "0")}:${String(getDate().minute).padStart(2, "0")}`
+            // this.timestamp = `${getDate().month}/${getDate().date} ${getDate().week}`
+            this.dpTime();
+        },
+        mounted() {
+            setInterval(this.dpTime, 1000);
+        },
+        methods: {
+            dpTime() {
+                let month = getDate().month;
+                let date = getDate().date;
+                let week = getDate().week;
+                let hour = getDate().hour;
+                let min = getDate().minute;
+
+                this.timestamp = `${month}/${date} ${week} ${String(hour).padStart(2, "0")}:${String(min).padStart(2, "0")}`
+            }
         }
     };
 </script>

@@ -23,11 +23,11 @@ module.exports = defineConfig({
   //   loaderOptions: {
   //     scss: {
   //       additionalData: `
-  //         @import "@/assets/style/_mixins.scss";
-  //         @import "@/assets/style/_variables.scss";
-  //         @import "@/assets/style/_mediaQueries.scss";
-  //         @import "@/assets/style/_svg.scss";
-  //         @import "@/assets/style/_common.scss";
+  //         @import "@/assets/style/_mixins.css";
+  //         @import "@/assets/style/_variables.css";
+  //         @import "@/assets/style/_mediaQueries.css";
+  //         @import "@/assets/style/_svg.css";
+  //         @import "@/assets/style/_common.css";
   //         `
   //     }
   //   }

@@ -81,15 +81,15 @@
                 }
                 else {
                     // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
-                    // var data = {id: username, pw: password};
                     // 주석처리된 코드는 서버와 연동 시 필요
-                    // const apiUrl = "";
+                    // var data = {id: username, pw: password};
+                    // const apiUrl = "/login/signIn";
                     // axios
                     //     .post(apiUrl, JSON.stringify(data))
                     //     .then(res => {
-                    //         if(res.data == "ok") {
+                    //         if(res.data != -1) {
                     //             // 로그인에 성공할 시, 생성한 객체를 인자로 하여 addUserName 호출
-                    //             this.addUserName(data);
+                    //             this.addUserName({username: username, id: res.data});
                     //         }
                     //             // 사용자가 존재하지 않아 로그인 실패
                     //         else {
@@ -97,7 +97,7 @@
                     //             this.$emit("alertModal", text);
                     //         }
                     //     });
-                    this.addUserName(username);
+                    this.addUserName({username: username, id: -1});
                 }
             }
         }

@@ -45,7 +45,7 @@ import { mapMutations } from 'vuex';
                 else {
                     // 주석처리된 코드는 서버와 연동 시 필요함
                     // var data = {id: username, pw: password};
-                    // const apiUrl="";
+                    // const apiUrl="/login/signUp";
                     // axios
                     //     .post(apiUrl, JSON.stringify(data))
                     //     .then(res => {
