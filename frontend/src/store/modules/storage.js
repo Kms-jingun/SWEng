@@ -29,6 +29,9 @@ const storage = {
                        );
                    }
                }
+            })
+            .catch(err => {
+                console.log(err.res)
             });
         
         // 더미데이터 처리 시
