@@ -1,17 +1,18 @@
 import getDate from "./../../assets/common/getDate";
 import axios from 'axios';
 import storage from "@/store/modules/storage";
+// import dummy from '../../assets/common/dummy.json';
 
 // 아이템 하나 추가
 const addOneItem = async (state, todoItem) => {
     /* 서버 통신 */
     var jsonValue = {
         item: todoItem,
-        date: `${getDate().date} ${getDate().week} ${String(getDate().hour).padStart(2, "0")}:${String(getDate().minute).padStart(2, "0")}`,
+        // date: `${getDate().date} ${getDate().week} ${String(getDate().hour).padStart(2, "0")}:${String(getDate().minute).padStart(2, "0")}`,
+        date: `${getDate().date} ${getDate().week}`,
         time: getDate().time,
         completed: false
     }
-
     await axios
         .post('/todos/save', JSON.stringify(jsonValue))
         .then(res => {
@@ -21,6 +22,16 @@ const addOneItem = async (state, todoItem) => {
                 alert("등록 실패");
             }
         });
+
+    // 더미 테스트 시
+    // var jsonValue = {
+    //     id: dummy.length,
+    //     item: todoItem,
+    //     date: `${getDate().date} ${getDate().week}`,
+    //     time: getDate().time,
+    //     completed: false
+    // }
+    // state.todoItems.push(jsonValue);
 }
 // 아이템 하나 삭제
 const removeOneItem = (state, payload) => {
@@ -35,6 +46,9 @@ const removeOneItem = (state, payload) => {
             }
         });
 
+    // 더미 테스트 시
+    // state.todoItems.splice(payload.index, 1);
+
     // localStorage.removeItem(payload.todoItem.item);
     // state.todoItems.splice(payload.index, 1);
 }
@@ -45,7 +59,6 @@ const toggleOneItem = (state, payload) => {
         id: payload.todoItem.id,
         completed: !payload.todoItem.completed
     }
-
     axios
         .put('/todos/' + payload.todoItem.id, JSON.stringify(jsonValue))
         .then(res => {
@@ -56,11 +69,23 @@ const toggleOneItem = (state, payload) => {
            }
         });
 
+    // 더미 테스트 시
+    // var jsonValue = {
+    //     id: payload.todoItem.id,
+    //     item: payload.todoItem.item,
+    //     date: `${getDate().date} ${getDate().week}`,
+    //     time: getDate().time,
+    //     completed: !payload.todoItem.completed
+    // }
+
+    // state.todoItems.splice(payload.todoItem.id, 1, jsonValue);
+    
     // payload.todoItem.completed = !payload.todoItem.completed;
     // localStorage.setItem(payload.todoItem.item, JSON.stringify(payload.todoItem));
 }
 // 모든 아이템 삭제
 const clearAllItem = (state) => {
+    // 서버 통신 시
     var todoItems = state.todoItems;
     if(todoItems.length > 0){
         axios
@@ -73,6 +98,8 @@ const clearAllItem = (state) => {
                 }
             });
     }
+    // 더미 테스트 시
+    // state.todoItems.splice(0);
 }
 // 최신순 정렬
 const sortTodoLatest = (state) => {
@@ -105,6 +132,7 @@ const setUserName = (state, userInfo) => {
     //             state.isLogin = true;
     //         }
     //     });
+    // storage.fetch(state.todoOldestOrder);
     state.isLogin = true;
     
 }

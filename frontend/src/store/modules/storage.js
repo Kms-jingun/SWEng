@@ -1,5 +1,7 @@
+// 더미 테스트 시 주석처리할 것
 import axios from 'axios';
 import {store} from "@/store/store";
+// import dummy from '../../assets/common/dummy.json';
 
 const storage = {
     async fetch(orderState) {
@@ -14,6 +16,7 @@ const storage = {
             setState = orderState;
         }
 
+        // 서버와 통신 시
         await axios
             .get('/todos/' + setState)
             .then(res => {
@@ -27,6 +30,12 @@ const storage = {
                    }
                }
             });
+        
+        // 더미데이터 처리 시
+        // const dmy = dummy;
+        // for(let i = 0; i < dmy.length; i++) {
+        //     arr.push(dmy[i]);
+        // }        
 
         store.state.todoItems = arr;
     },
