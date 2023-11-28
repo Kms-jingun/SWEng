@@ -22,7 +22,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
-// import axios from 'axios';
+import axios from 'axios';
     export default {
         data() {
             return {
@@ -44,27 +44,27 @@ import { mapMutations } from 'vuex';
                 }
                 else {
                     // 주석처리된 코드는 서버와 연동 시 필요함
-                    // var data = {id: username, pw: password};
-                    // const apiUrl="/login/signUp";
-                    // axios
-                    //     .post(apiUrl, JSON.stringify(data))
-                    //     .then(res => {
-                    //         if(res.data=="ok") {
-                    //             // 회원가입 성공 시, 
-                    //             const text = "회원가입 완료"
-                    //             this.$emit("alertModal", text);
-                    //             this.setIsRegister();
-                    //         }
-                    //         else {
-                    //             // 회원가입에 실패한 경우(이미 사용자가 존재하는 경우)
-                    //             const text = "이미 등록된 사용자입니다."
-                    //             this.$emit("alertModal", text);
-                    //         }
-                    //     });
+                    var data = {id: username, pw: password};
+                    const apiUrl="/login/signUp";
+                    axios
+                        .post(apiUrl, JSON.stringify(data))
+                        .then(res => {
+                            if(res.data=="ok") {
+                                // 회원가입 성공 시, 
+                                const text = "회원가입 완료"
+                                this.$emit("alertModal", text);
+                                this.setIsRegister();
+                            }
+                            else {
+                                // 회원가입에 실패한 경우(이미 사용자가 존재하는 경우)
+                                const text = "이미 등록된 사용자입니다."
+                                this.$emit("alertModal", text);
+                            }
+                        });
 
-                    const text = "회원가입 완료"
-                    this.$emit("alertModal", text);
-                    this.setIsRegister();
+                    // const text = "회원가입 완료"
+                    // this.$emit("alertModal", text);
+                    // this.setIsRegister();
                 }
             }
         }

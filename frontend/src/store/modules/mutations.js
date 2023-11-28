@@ -119,21 +119,21 @@ const sortTodoOldest = (state) => {
 // 이후 해당 유저의 리스트를 가져온다.
 const setUserName = (state, userInfo) => {
     // 테스트, 서버 대신 로컬 서버에 유저의 이름을 저장한다.
-    localStorage.setItem("userName", JSON.stringify(userInfo.username));
+    // localStorage.setItem("userName", JSON.stringify(userInfo.username));
     state.userName = userInfo.username;
     
     // 로그인 성공 시, 서버의 현 사용자 이름으로 설정한 후, 해당 사용자의 list를 불러온다.
     // 그 후 이후 화면으로 전환한다.
-    // axios
-    //     .post('/todos/set', userInfo.id)
-    //     .then(res => {
-    //         if(res.data == 'ok') {
-    //             storage.fetch(state.todoOldestOrder);
-    //             state.isLogin = true;
-    //         }
-    //     });
+    axios
+        .post('/todos/set', userInfo.id)
+        .then(res => {
+            if(res.data == 'ok') {
+                storage.fetch(state.todoOldestOrder);
+                state.isLogin = true;
+            }
+        });
     // storage.fetch(state.todoOldestOrder);
-    state.isLogin = true;
+    // state.isLogin = true;
     
 }
 

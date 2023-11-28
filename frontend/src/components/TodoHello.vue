@@ -82,22 +82,22 @@
                 else {
                     // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
                     // 주석처리된 코드는 서버와 연동 시 필요
-                    // var data = {id: username, pw: password};
-                    // const apiUrl = "/login/signIn";
-                    // axios
-                    //     .post(apiUrl, JSON.stringify(data))
-                    //     .then(res => {
-                    //         if(res.data != -1) {
-                    //             // 로그인에 성공할 시, 생성한 객체를 인자로 하여 addUserName 호출
-                    //             this.addUserName({username: username, id: res.data});
-                    //         }
-                    //             // 사용자가 존재하지 않아 로그인 실패
-                    //         else {
-                    //             const text = "존재하지 않는 사용자입니다.";
-                    //             this.$emit("alertModal", text);
-                    //         }
-                    //     });
-                    this.addUserName({username: username, id: -1});
+                    var data = {id: username, pw: password};
+                    const apiUrl = "/login/signIn";
+                    axios
+                        .post(apiUrl, JSON.stringify(data))
+                        .then(res => {
+                            if(res.data != -1) {
+                                // 로그인에 성공할 시, 생성한 객체를 인자로 하여 addUserName 호출
+                                this.addUserName({username: username, id: res.data});
+                            }
+                                // 사용자가 존재하지 않아 로그인 실패
+                            else {
+                                const text = "존재하지 않는 사용자입니다.";
+                                this.$emit("alertModal", text);
+                            }
+                        });
+                    // this.addUserName({username: username, id: -1});
                 }
             }
         }
