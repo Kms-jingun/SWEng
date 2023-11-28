@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -35,11 +35,8 @@ public class LoginController {
     public String signIn(@RequestBody @Valid LoginForm form, BindingResult bindingResult){
         log.info("Post : signIn");
 
-        if(loginService.isExist(form.getName(),form.getBirth())){
-            return "ok";
-        } else {
-            return "fail";
-        }
+        return loginService.isExist(form.getName(),form.getBirth());
+        
     }
 
 

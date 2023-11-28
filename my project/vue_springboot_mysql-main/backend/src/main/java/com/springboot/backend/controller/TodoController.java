@@ -8,8 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,11 +22,11 @@ public class TodoController {
 
     @PostMapping("/todos/set")
     public String setUser(Long id){
-        log.info("Post : User Save"));
+        log.info("Post : User Save");
 
         userId = id;
 
-        return "ok"
+        return "ok";
     }
 
     /**

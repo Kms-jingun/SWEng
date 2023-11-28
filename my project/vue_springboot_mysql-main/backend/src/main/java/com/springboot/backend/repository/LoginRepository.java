@@ -4,7 +4,7 @@ import com.springboot.backend.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 
 @Repository
@@ -35,11 +35,11 @@ public class LoginRepository{
             loginUser = em.createQuery(
                             "select u from User u" +
                                     " where u.name = " + name, User.class)
-                    .getSingleResult()
+                    .getSingleResult();
         } catch (Exception e){
             return -1;
         } finally {
-            return loginUser.getId()
+            return loginUser.getId();
         }
 
     }

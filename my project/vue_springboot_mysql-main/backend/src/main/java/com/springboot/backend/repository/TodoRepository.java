@@ -4,7 +4,7 @@ import com.springboot.backend.model.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import java.util.List;
 
 @Repository
@@ -31,14 +31,14 @@ public class TodoRepository {
             todoList = em.createQuery(
                     "select t from Todo t" +
                             " where t.useYn = 'Y'" +
-                            " AND t.userId = " + String(userId)
+                            " AND t.userId = " + String(userId) +
                             " order by t.writeDate DESC ", Todo.class)
                     .getResultList();
         } else {
             todoList = em.createQuery(
                     "select t from Todo t" +
                             " where t.useYn = 'Y'" +
-                            " AND t.userId = " + String(userId)
+                            " AND t.userId = " + String(userId) +
                             " order by t.writeDate ASC ", Todo.class)
                     .getResultList();
         }
