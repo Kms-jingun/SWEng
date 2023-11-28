@@ -1,0 +1,155 @@
+body {
+    font-family: 'Your Font Family', sans-serif;
+    background-image: linear-gradient(to right, var(--main-gradient-start), var(--main-gradient-end));
+    color: var(--font-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    text-align: center; /* 중앙 정렬 */
+}
+
+.logo {
+    font-family: "Georgia";
+    font-size: 5rem; /* 로고 폰트 크기 */
+    font-weight: bold; /* 폰트 두께 */
+    color: #000000; /* 폰트 색상 */
+}
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.header__date {
+    /* 날짜 표시 영역 스타일링 */
+    margin-top: 25px;
+    font-size: 2em;
+    color: #000000;
+    margin-bottom: 25px;
+}
+
+.hello{
+    line-height: 1.8;
+    font-weight: 800;
+    padding: 20px; /* 패딩 */
+    text-align: center; /* 중앙 정렬 */
+    color: #000000;
+}
+
+button{
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #66b3f5; /* Background color */
+    border: 1px solid rgb(23, 75, 206); /* 테두리 */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+#username {
+    margin-left: 32px; /* 원하는 만큼의 여백을 설정 */
+    margin-bottom: 10px;
+}
+
+#password{
+    margin-bottom: 16px;
+}
+
+.footer {
+    /* 푸터 스타일링 */
+    font-weight: bolder;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.main-input {
+    /* 입력 영역 전체를 감싸는 컨테이너 스타일링 */
+    padding: 5px;
+    margin: 10px;
+    background-color: #f10e71; /* Background color */
+    border: 1px solid rgb(23, 75, 206); /* 테두리 */
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.add__input {
+    /* 투두 아이템을 추가하는 입력 필드 스타일링 */
+    width: 80%; /* 가로 너비 */
+    padding: 10px; /* 내부 패딩 */
+    margin-right: 10px; /* 오른쪽 마진 */
+}
+
+.add__button {
+    /* 추가 버튼 스타일링 */
+    padding: 10px; /* 패딩 */
+    background-color: #4CAF50; /* 배경색 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 없앰 */
+    cursor: pointer; /* 커서 스타일 */
+}
+
+.list {
+    /* 리스트 스타일링 */
+}
+
+.list__item {
+    /* 리스트 아이템 스타일링 */
+}
+
+.list__label {
+    /* 리스트 라벨 스타일링 */
+}
+
+.list__text {
+    /* 텍스트 스타일링 */
+}
+
+.list__right {
+    /* 오른쪽 영역 스타일링 */
+}
+
+.list__delete {
+    /* 삭제 버튼 스타일링 */
+}
+
+.list__date {
+    /* 날짜 표시 스타일링 */
+}
+
+/* TodoRegister 컴포넌트에 대한 스타일링 */
+#TodoRegister div {
+    /* 컨테이너 스타일링 */
+    margin-bottom: 15px;
+}
+
+#TodoRegister label {
+    /* 라벨 스타일링 */
+    display: block;
+    margin-bottom: 5px;
+}
+
+#TodoRegister input {
+    /* 입력 필드 스타일링 */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#TodoRegister button {
+    /* 버튼 스타일링 */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

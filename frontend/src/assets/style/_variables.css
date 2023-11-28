@@ -1,0 +1,7 @@
+:root {
+    --main-gradient-start: #44b8d0; /* 그라디언트 시작 색상 */
+    --main-gradient-end: #a582d7; /* 그라디언트 끝 색상 */
+    --input-bg-color: #ffffff; /* 인풋 배경색 */
+    --input-shadow-color: rgba(0, 0, 0, 0.1); /* 인풋 그림자색 */
+    --font-color: #333333; /* 폰트 색상 */
+}

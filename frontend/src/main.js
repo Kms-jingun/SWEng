@@ -1,6 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { store } from './store/store';
+import './assets/style/_common.css'
+import './assets/style/_mediaQueries.css'
+import './assets/style/_reset.css'
+import './assets/style/_svg.css'
+import './assets/style/_variables.css'
 
 import axios from 'axios';
 
