@@ -31,14 +31,14 @@ public class TodoRepository {
             todoList = em.createQuery(
                     "select t from Todo t" +
                             " where t.useYn = 'Y'" +
-                            " AND t.userId = " + String(userId) +
+                            " AND t.userId = " + userId +
                             " order by t.writeDate DESC ", Todo.class)
                     .getResultList();
         } else {
             todoList = em.createQuery(
                     "select t from Todo t" +
                             " where t.useYn = 'Y'" +
-                            " AND t.userId = " + String(userId) +
+                            " AND t.userId = " + userId +
                             " order by t.writeDate ASC ", Todo.class)
                     .getResultList();
         }
@@ -52,7 +52,7 @@ public class TodoRepository {
                 "update Todo t " +
                         " set t.useYn = 'N' " +
                         " where t.useYn = 'Y'" +
-                        " AND t.userId = " + String(userId))
+                        " AND t.userId = " + userId)
                 .executeUpdate();
     }
 }

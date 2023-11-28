@@ -33,7 +33,7 @@ public class LoginService {
     public Long isExist(String name, String birth){
         long id = loginRepository.findByName(name);
         if(id == -1){
-            return -2;
+            return -2L;
         }else{
             return loginRepository.checkBirth(id,birth);
         }

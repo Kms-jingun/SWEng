@@ -32,7 +32,7 @@ public class LoginController {
     }
 
     @PostMapping("/login/signIn")
-    public String signIn(@RequestBody @Valid LoginForm form, BindingResult bindingResult){
+    public Long signIn(@RequestBody @Valid LoginForm form, BindingResult bindingResult){
         log.info("Post : signIn");
 
         return loginService.isExist(form.getName(),form.getBirth());

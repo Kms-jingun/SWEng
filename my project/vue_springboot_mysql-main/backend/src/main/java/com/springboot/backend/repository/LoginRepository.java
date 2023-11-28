@@ -19,13 +19,13 @@ public class LoginRepository{
     }
 
     // 단건 조회
-    public boolean checkBirth(long id, String birth){
-        User loginUser = em.find(Todo.class, id);
+    public Long checkBirth(long id, String birth){
+        User loginUser = em.find(User.class, id);
         String userBirth = loginUser.getBirth();
         if(userBirth == birth){
-            return true;
+            return id;
         }else{
-            return false;
+            return -1L;
         }
     }
 
