@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class Todo {
 
     @Id
-    //@GeneratedValue
+    @GeneratedValue
     @Column(name = "id")
     private Long id;
 

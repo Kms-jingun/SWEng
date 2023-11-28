@@ -6,7 +6,7 @@ import com.example.demo.repository.LoginRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import java.util.*;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -30,11 +30,11 @@ public class LoginService {
      * 정상적으로 로그인이 된다면 해당 유저의 id 반환
      */
     public Long isExist(String name, String birth){
-        long id = loginRepository.findByName(name);
-        if(id == -1){
+        Optional<User> findUser = loginRepository.findByName(name);
+        if(findUser == null){
             return -2L;
         }else{
-            return loginRepository.checkBirth(id,birth);
+            return loginRepository.checkBirth(findUser,birth);
         }
 
     }

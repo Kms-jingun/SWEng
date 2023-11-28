@@ -5,7 +5,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
 
   devServer: {
-    proxy : 'http://localhost:8787'
+    proxy : 'http://localhost:8081'
   },
 
   //index.html파일이 저장되는 경로

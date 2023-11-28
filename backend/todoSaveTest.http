@@ -1,0 +1,9 @@
+POST http://localhost:8081/todos/save
+Content-Type: application/json
+
+{
+  "item": "savetest1",
+  "date": "231129",
+  "completed": false,
+  "time": "12:34:56"
+}
