@@ -1,0 +1,7 @@
+PUT http://localhost:8787/todos/update/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "completed": true
+}

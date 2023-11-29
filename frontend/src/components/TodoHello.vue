@@ -82,7 +82,7 @@
                 else {
                     // 로그인 컴포넌트에서 유효성 검사를 통과하였으므로, 서버에 전달할 수 있다.
                     // 주석처리된 코드는 서버와 연동 시 필요
-                    var data = {id: username, pw: password};
+                    var data = {name: username, birth: password};
                     const apiUrl = "/login/signIn";
                     axios
                         .post(apiUrl, JSON.stringify(data))

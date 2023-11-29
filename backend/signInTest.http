@@ -1,0 +1,7 @@
+POST http://localhost:8787/login/signIn
+Content-Type: application/json
+
+{
+  "name": "김운민",
+  "birth": "990319"
+}

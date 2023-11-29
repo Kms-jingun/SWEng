@@ -20,13 +20,13 @@ public class TodoController {
     private long userId;
     private final TodoService todoService;
 
-    @PostMapping("/todos/set")
-    public String setUser(Long id){
-        log.info("Post : User Save");
+    @PutMapping("/todos/set/{id}")
+    public long setUser(@PathVariable("id") Long id){
+        log.info("Put : User Save");
 
         userId = id;
 
-        return "ok";
+        return userId;
     }
 
     /**
@@ -55,7 +55,7 @@ public class TodoController {
      * Todo 완료 상태 업데이트
      * @return
      */
-    @PutMapping("/todos/{id}")
+    @PutMapping("/todos/update/{id}")
     public String updateTodo(
             @PathVariable("id") Long id,
             @RequestBody UpdateTodoRequest request
@@ -67,7 +67,7 @@ public class TodoController {
         Todo findTodo = todoService.findOne(id);
 
         if(request.isCompleted() == findTodo.isCompleted()){
-            return "ok";
+            return "ok update";
         } else {
             return "fail";
         }
@@ -87,7 +87,7 @@ public class TodoController {
         Todo findTodo = todoService.findOne(id);
 
         if(findTodo.getUseYn().equals("N")){
-            return "ok";
+            return "ok delete";
         } else {
             return "fail";
         }
@@ -100,7 +100,7 @@ public class TodoController {
         int result = todoService.updateTodoAllClear(userId);
 
         if(result > 0){
-            return "ok";
+            return "ok clear";
         } else {
             return "fail";
         }
@@ -123,7 +123,7 @@ public class TodoController {
 
         todoService.save(todo);
 
-        return "ok";
+        return "ok validation(save)";
     }
 
     @Data

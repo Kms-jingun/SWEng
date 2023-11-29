@@ -1,14 +1,14 @@
 <template>
     <div>
         <p>회원가입</p>
-        <form @submit.prevent="submitForm(username, password)">
+        <form @submit.prevent="submitForm(this.username, this.password)">
             <div>
                 <label for="username">이름: </label>
-                <input id="username" type="text" v-model="username" />
+                <input id="username" type="text" v-model="this.username" />
             </div>
             <div>
                 <label for="password">생년월일: </label>
-                <input id="password" placeholder="ex)990319" type="password" v-model="password" />
+                <input id="password" placeholder="ex)990319" type="password" v-model="this.password" />
             </div>
             <button type="submit">
                 <span>가입</span>
@@ -44,16 +44,21 @@ import axios from 'axios';
                 }
                 else {
                     // 주석처리된 코드는 서버와 연동 시 필요함
-                    var data = {id: username, pw: password};
+                    var data = {name: username, birth: password};
                     const apiUrl="/login/signUp";
                     axios
                         .post(apiUrl, JSON.stringify(data))
+                        // .post(apiUrl, data)
                         .then(res => {
                             if(res.data=="ok") {
                                 // 회원가입 성공 시, 
                                 const text = "회원가입 완료"
                                 this.$emit("alertModal", text);
                                 this.setIsRegister();
+                            }
+                            else if(res.data=="signUp error") {
+                                const text = "signUp error!";
+                                this.$emit("alertModal",text);
                             }
                             else {
                                 // 회원가입에 실패한 경우(이미 사용자가 존재하는 경우)

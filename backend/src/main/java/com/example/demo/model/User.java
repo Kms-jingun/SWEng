@@ -15,8 +15,8 @@ import org.hibernate.annotations.DynamicInsert;
 public class User {
 
     @Id
-    //@GeneratedValue
-    @Column(name = "user_id")
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
     @Column(nullable = false, length = 20, unique = true)

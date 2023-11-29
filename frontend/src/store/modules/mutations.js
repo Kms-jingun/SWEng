@@ -16,7 +16,7 @@ const addOneItem = async (state, todoItem) => {
     await axios
         .post('/todos/save', JSON.stringify(jsonValue))
         .then(res => {
-            if(res.data == "ok"){
+            if(res.data == "ok validation(save)"){
                 storage.fetch(state.todoOldestOrder);
             } else {
                 alert("등록 실패");
@@ -39,7 +39,7 @@ const removeOneItem = (state, payload) => {
     axios
         .put('/todos/delete/' + payload.todoItem.id)
         .then(res => {
-            if(res.data == "ok"){
+            if(res.data == "ok delete"){
                 storage.fetch(state.todoOldestOrder);
             } else {
                 alert("삭제 실패");
@@ -60,9 +60,9 @@ const toggleOneItem = (state, payload) => {
         completed: !payload.todoItem.completed
     }
     axios
-        .put('/todos/' + payload.todoItem.id, JSON.stringify(jsonValue))
+        .put('/todos/update/' + payload.todoItem.id, JSON.stringify(jsonValue))
         .then(res => {
-           if(res.data == "ok"){
+           if(res.data == "ok update"){
                storage.fetch(state.todoOldestOrder);
            } else {
                alert("업데이트 실패");
@@ -91,7 +91,7 @@ const clearAllItem = (state) => {
         axios
             .put('/todos/clear')
             .then(res => {
-                if(res.data == "ok"){
+                if(res.data == "ok clear"){
                     storage.fetch(state.todoOldestOrder);
                 } else {
                     alert("클리어 실패");
@@ -125,9 +125,9 @@ const setUserName = (state, userInfo) => {
     // 로그인 성공 시, 서버의 현 사용자 이름으로 설정한 후, 해당 사용자의 list를 불러온다.
     // 그 후 이후 화면으로 전환한다.
     axios
-        .post('/todos/set', userInfo.id)
+        .put('/todos/set/'+ userInfo.id)
         .then(res => {
-            if(res.data == 'ok') {
+            if(res.data === userInfo.id) {
                 storage.fetch(state.todoOldestOrder);
                 state.isLogin = true;
             }

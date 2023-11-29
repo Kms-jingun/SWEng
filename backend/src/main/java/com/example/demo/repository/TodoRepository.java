@@ -29,14 +29,14 @@ public class TodoRepository {
         List<Todo> todoList = null;
         if(orderState){
             todoList = em.createQuery(
-                            "select t from Todo t" +
+                            "select t from todo t" +
                                     " where t.useYn = 'Y'" +
                                     " AND t.userId = " + userId +
                                     " order by t.writeDate DESC ", Todo.class)
                     .getResultList();
         } else {
             todoList = em.createQuery(
-                            "select t from Todo t" +
+                            "select t from todo t" +
                                     " where t.useYn = 'Y'" +
                                     " AND t.userId = " + userId +
                                     " order by t.writeDate ASC ", Todo.class)
@@ -49,7 +49,7 @@ public class TodoRepository {
     // 전체 업데이트
     public int updateTodoAllClear(Long userId) {
         return em.createQuery(
-                        "update Todo t " +
+                        "update todo t " +
                                 " set t.useYn = 'N' " +
                                 " where t.useYn = 'Y'" +
                                 " AND t.userId = " + userId)
