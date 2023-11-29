@@ -5,7 +5,6 @@
             <span className="hello__guide-text">당신의 리스트를 불러오겠습니다.</span>
         </p>
         <!-- <p className="hello__ask">What is your name?</p> -->
-        <label htmlFor="user-name">로그인</label>
 
         <!-- 사용자의 이름을 입력받아 등록한다(addUserName 호출)
         입력된 이름은 userName에 저장된다. -->
@@ -30,7 +29,7 @@
         <!-- 로그인 버튼을 누르거나 엔터가 눌리면 submitForm 호출 -->
         <form @submit.prevent="submitForm(username, password)">
             <div>
-                <label for="username">이름: </label>
+                <label for="username">닉네임: </label>
                 <input id="username" type="text" v-model="username" />
             </div>
             <div>
@@ -87,13 +86,17 @@
                     axios
                         .post(apiUrl, JSON.stringify(data))
                         .then(res => {
-                            if(res.data != -1) {
+                            if(res.data >= 0) {
                                 // 로그인에 성공할 시, 생성한 객체를 인자로 하여 addUserName 호출
                                 this.addUserName({username: username, id: res.data});
                             }
                                 // 사용자가 존재하지 않아 로그인 실패
-                            else {
-                                const text = "존재하지 않는 사용자입니다.";
+                            else if(res.data == -1) {
+                                const text = "등록되지 않은 생년월일입니다.";
+                                this.$emit("alertModal", text);
+                            }
+                            else if(res.data == -2) {
+                                const text = "등록되지 않은 이름입니다."
                                 this.$emit("alertModal", text);
                             }
                         });

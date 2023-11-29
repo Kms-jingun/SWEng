@@ -9,7 +9,7 @@
             <input
                 type="text"
                 class="add__input"
-                placeholder="Enter your task here"
+                placeholder="할 일을 입력하세요."
                 v-model="newTodoItem"
                 v-on:keypress.enter="addTodoItem"
                 ref="taskInput"

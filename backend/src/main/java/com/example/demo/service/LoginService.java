@@ -21,8 +21,14 @@ public class LoginService {
      */
     @Transactional
     public Long save(User user){
-        loginRepository.save(user);
+        Optional<User> findUser = loginRepository.findByName(user.getName());
 
+        if(!(findUser.isEmpty())){
+            return -2L;
+        }
+        else {
+            loginRepository.save(user);
+        }
         return user.getId();
     }
 
@@ -33,7 +39,7 @@ public class LoginService {
      */
     public Long isExist(String name, String birth){
         Optional<User> findUser = loginRepository.findByName(name);
-        if(findUser == null){
+        if(findUser.isEmpty()){
             return -2L;
         }else{
             return loginRepository.checkBirth(findUser,birth);

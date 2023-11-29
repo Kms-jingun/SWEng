@@ -125,7 +125,8 @@ const setUserName = (state, userInfo) => {
     // 로그인 성공 시, 서버의 현 사용자 이름으로 설정한 후, 해당 사용자의 list를 불러온다.
     // 그 후 이후 화면으로 전환한다.
     axios
-        .put('/todos/set/'+ userInfo.id)
+    // 백에서 .get으로 바꿀 예정
+        .get('/todos/set/'+ userInfo.id)
         .then(res => {
             if(res.data === userInfo.id) {
                 storage.fetch(state.todoOldestOrder);

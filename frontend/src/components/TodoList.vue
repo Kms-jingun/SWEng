@@ -17,6 +17,7 @@
             <label v-bind:for="todoItem.item" class="list__label">
                 <span class="icon-check"></span>
                 <p class="list__text">{{ todoItem.item }}</p>
+                <span>{{ console.log(todoItem.item) }}</span>
             </label>
 
             <div class="list__right">

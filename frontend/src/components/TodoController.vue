@@ -11,7 +11,7 @@
         </div>
 
         <!-- 전체 삭제 버튼 -->
-        <button class="clear" v-on:click="clearTodo">Clear All</button>
+        <button class="clear" v-on:click="clearTodo">전체 삭제</button>
     </div>
 </template>
 

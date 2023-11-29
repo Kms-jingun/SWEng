@@ -20,9 +20,9 @@ public class TodoController {
     private long userId;
     private final TodoService todoService;
 
-    @PutMapping("/todos/set/{id}")
+    @GetMapping("/todos/set/{id}")
     public long setUser(@PathVariable("id") Long id){
-        log.info("Put : User Save");
+        log.info("Get : User Save");
 
         userId = id;
 

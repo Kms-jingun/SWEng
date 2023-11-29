@@ -13,7 +13,7 @@ body {
 }
 
 .logo {
-    font-family: "Georgia";
+    font-family: "Georgia", serif;
     font-size: 5rem; /* 로고 폰트 크기 */
     font-weight: bold; /* 폰트 두께 */
     color: #000000; /* 폰트 색상 */
@@ -72,25 +72,26 @@ button{
 
 .main-input {
     /* 입력 영역 전체를 감싸는 컨테이너 스타일링 */
-    padding: 5px;
+    display: flex;
+    padding: 15px;
     margin: 10px;
-    background-color: #f10e71; /* Background color */
+    background-color: #7abae8; /* Background color */
     border: 1px solid rgb(23, 75, 206); /* 테두리 */
     border-radius: 25px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
+    /*cursor: pointer; !* Pointer cursor on hover *!*/
 }
 
 .add__input {
     /* 투두 아이템을 추가하는 입력 필드 스타일링 */
     width: 80%; /* 가로 너비 */
-    padding: 10px; /* 내부 패딩 */
+    padding: 5px; /* 내부 패딩 */
     margin-right: 10px; /* 오른쪽 마진 */
 }
 
 .add__button {
     /* 추가 버튼 스타일링 */
     padding: 10px; /* 패딩 */
-    background-color: #4CAF50; /* 배경색 */
+    background-color: #ffffff; /* 배경색 */
     color: white; /* 텍스트 색상 */
     border: none; /* 테두리 없앰 */
     cursor: pointer; /* 커서 스타일 */
@@ -98,10 +99,20 @@ button{
 
 .list {
     /* 리스트 스타일링 */
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    background-color: #7abae8; /* Background color */
+    border: 1px solid rgb(23, 75, 206); /* 테두리 */
+    border-radius: 25px; /* Rounded corners */
 }
 
 .list__item {
     /* 리스트 아이템 스타일링 */
+    padding: 10px; /* 패딩 */
+    background-color: #ffffff; /* 배경색 */
+    color: white; /* 텍스트 색상 */
+    border: none; /* 테두리 없앰 */
 }
 
 .list__label {

@@ -3,7 +3,7 @@
         <p>회원가입</p>
         <form @submit.prevent="submitForm(this.username, this.password)">
             <div>
-                <label for="username">이름: </label>
+                <label for="username">닉네임: </label>
                 <input id="username" type="text" v-model="this.username" />
             </div>
             <div>
@@ -50,20 +50,16 @@ import axios from 'axios';
                         .post(apiUrl, JSON.stringify(data))
                         // .post(apiUrl, data)
                         .then(res => {
-                            if(res.data=="ok") {
+                            if(res.data==-2) {
+                                // 회원가입에 실패한 경우(이미 사용자가 존재하는 경우)
+                                const text = "이미 등록된 사용자입니다."
+                                this.$emit("alertModal", text);
+                            }
+                            else {
                                 // 회원가입 성공 시, 
                                 const text = "회원가입 완료"
                                 this.$emit("alertModal", text);
                                 this.setIsRegister();
-                            }
-                            else if(res.data=="signUp error") {
-                                const text = "signUp error!";
-                                this.$emit("alertModal",text);
-                            }
-                            else {
-                                // 회원가입에 실패한 경우(이미 사용자가 존재하는 경우)
-                                const text = "이미 등록된 사용자입니다."
-                                this.$emit("alertModal", text);
                             }
                         });
 
