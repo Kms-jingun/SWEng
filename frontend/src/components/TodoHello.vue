@@ -30,11 +30,13 @@
         <form @submit.prevent="submitForm(username, password)">
             <div>
                 <label for="username">닉네임: </label>
-                <input id="username" type="text" v-model="username" />
+                <input id="username" type="text" v-model="username" maxlength="20" />
             </div>
             <div>
                 <label for="password">생년월일: </label>
-                <input id="password" placeholder="ex)990319" type="password" v-model="password" />
+                <input id="password" placeholder="ex)990319" type="password" v-model="password"
+                       maxlength="20" 
+                />
             </div>
             <button type="submit">
                 <span>로그인</span>

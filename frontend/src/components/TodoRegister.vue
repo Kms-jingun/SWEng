@@ -4,11 +4,13 @@
         <form @submit.prevent="submitForm(this.username, this.password)">
             <div>
                 <label for="username">닉네임: </label>
-                <input id="username" type="text" v-model="this.username" />
+                <input id="username" type="text" v-model="this.username" maxlength="20" />
             </div>
             <div>
                 <label for="password">생년월일: </label>
-                <input id="password" placeholder="ex)990319" type="password" v-model="this.password" />
+                <input id="password" placeholder="ex)990319" type="password" v-model="this.password"
+                       maxlength="20"
+                />
             </div>
             <button type="submit">
                 <span>가입</span>
@@ -57,8 +59,6 @@ import axios from 'axios';
                             }
                             else {
                                 // 회원가입 성공 시, 
-                                const text = "회원가입 완료"
-                                this.$emit("alertModal", text);
                                 this.setIsRegister();
                             }
                         });
