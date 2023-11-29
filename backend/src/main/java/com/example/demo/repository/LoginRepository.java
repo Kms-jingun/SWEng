@@ -21,11 +21,9 @@ public class LoginRepository{
 
     // 단건 조회
     public Long checkBirth(Optional<User> loginUser2, String birth){
-        /*if(loginUser2.orElse(null)!=null){
-            //return Long.parseLong(loginUser2.orElse(null).getBirth());
-            return Long.parseLong(birth);
-        }*/
-        if(loginUser2.orElse(null).getBirth().equals(birth)){
+        if(loginUser2.orElse(null)==null){
+            return -2L;
+        }else if(loginUser2.orElse(null).getBirth().equals(birth)){
             return loginUser2.orElse(null).getId();
         }else{
             return -1L;

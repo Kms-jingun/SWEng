@@ -22,7 +22,7 @@ public class LoginController {
      * @return
      */
     @PostMapping("/login/signUp")
-    public String signUp(@RequestBody @Valid LoginForm form, BindingResult bindingResult){
+    public Long signUp(@RequestBody @Valid LoginForm form, BindingResult bindingResult){
         log.info("Post : signUp");
 
         return validation(form, bindingResult);
@@ -37,19 +37,17 @@ public class LoginController {
     }
 
 
-    private String validation(@Valid @RequestBody LoginForm form, BindingResult bindingResult) {
+    private Long validation(@Valid @RequestBody LoginForm form, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
-            return "signUp error";
+            return -3L;
         }
 
         User user = new User();
         user.setName(form.getName());
         user.setBirth(form.getBirth());
 
-        loginService.save(user);
-
-        return "ok";
+        return loginService.save(user);
     }
 
 
