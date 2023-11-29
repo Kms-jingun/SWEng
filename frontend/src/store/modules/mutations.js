@@ -103,13 +103,13 @@ const clearAllItem = (state) => {
 }
 // 최신순 정렬
 const sortTodoLatest = (state) => {
-    state.todoOldestOrder = false;
+    state.todoOldestOrder = true;
 
     storage.fetch(state.todoOldestOrder);
 }
 // 오래된 순 정렬
 const sortTodoOldest = (state) => {
-    state.todoOldestOrder = true;
+    state.todoOldestOrder = false;
 
     storage.fetch(state.todoOldestOrder);
 }

@@ -73,7 +73,7 @@
 
                 // 생년월일 정규표현식
                 const validatePw = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))$/
-                if(username==="" || password==="" || password.length != 6 || !validatePw.test(password)) {
+                if(username==="" || password==="" || username.length > 20 || password.length != 6 || !validatePw.test(password)) {
                     // 경고창 띄우기
                     const text = "입력된 값이 유효하지 않습니다."
                     this.$emit("alertModal", text);

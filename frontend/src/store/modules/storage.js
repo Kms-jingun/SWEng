@@ -5,30 +5,34 @@ import {store} from "@/store/store";
 
 const storage = {
     async fetch(orderState) {
-        var setState = true;
+        var setState = false;
         /* 서버 통신 */
         const arr = [];
 
         if(orderState == undefined || orderState === null){
-            setState == true;
+            setState == false;
         }
         else if(orderState != null || orderState != ""){
             setState = orderState;
         }
-
+        console.log(setState)
         // 서버와 통신 시
         await axios
             .get('/todos/' + setState)
             .then(res => {
                const jsonData = res.data;
-
-               if(jsonData.length > 0){
-                   for(let i = 0 ; i < jsonData.length; i++){
-                       arr.push(
+                
+                if(jsonData.length > 0){
+                    for(let i = 0 ; i < jsonData.length; i++){
+                        arr.push(
                            jsonData[i]
-                       );
-                   }
-               }
+                        );
+                    }
+                }
+
+               /*arr.sort((a, b) => {
+                    return a.time - b.time
+               });*/
             })
             .catch(err => {
                 console.log(err.res)

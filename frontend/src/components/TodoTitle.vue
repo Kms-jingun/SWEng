@@ -8,23 +8,29 @@
                 class="title__name"
                 ref="test"
                 contenteditable="true"
-            >{{ this.userName }}님!</span>
-            .
+            >&nbsp;{{ this.userName }}님!</span>
         </p>
         <p class="title__task">
             <span class="title__task-top">오늘의 할 일은</span>
             <span class="title__task-count">
-                <em class="title__task-left">{{ this.todoItemsCount.left }}</em>
-                <em
+                <!-- <em class="title__task-left">{{ this.todoItemsCount.left }}</em> -->
+                <!-- <em
                     v-if="this.todoItemsCount.total"
                     class="title__task-total"
-                >&nbsp;/ {{ this.todoItemsCount.total }}</em>
+                >&nbsp;총 {{ this.todoItemsCount.total }} 개 입니다.</em> -->
+                <em class="title__task-total">&nbsp;총 {{ this.todoItemsCount.total }}개 입니다.</em>
             </span>
-            <span class="title__task-bottom">
+            <!-- <span class="title__task-bottom">
                 <span v-if="this.todoItemsCount.total > 1"></span>
                 <span v-else></span> 입니다 !
-            </span>
+            </span> -->
             <span class="title__task-info"></span>
+        </p>
+        <p>
+            <span class="title__task-top">오늘의 할 일을</span>
+            <span class="title__task-count">
+                <em class="title__task-left">&nbsp;{{ this.todoItemsCount.total - this.todoItemsCount.left }}개 하셨어요.</em>
+            </span>
         </p>
     </div>
 </template>

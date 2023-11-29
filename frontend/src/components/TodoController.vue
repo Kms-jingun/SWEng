@@ -5,8 +5,8 @@
         <div class="select">
             <label class="blind" for="order">Order</label>
             <select name="order" id="order" class="selectbox" v-model="selected" v-on:change="sortTodo">
-                <option value="date-asc">Oldest</option>
-                <option value="date-desc">Latest</option>
+                <option value="date-asc">오래된순</option>
+                <option value="date-desc">최신순</option>
             </select>
         </div>
 
@@ -35,7 +35,8 @@
                     this.$store.commit("sortTodoLatest");
                 }
                 else if(this.selected === "date-asc") {
-                    this.$store.commit("sortTodoOldest")
+                    
+                    this.$store.commit("sortTodoOldest");
                 }
             }
         }
