@@ -57,6 +57,14 @@
                     this.clearInput();
                     return false;
                 }
+
+                // 입력된 내용이 200자를 넘어가는 경우
+                if(this.newTodoItem.length > 200) {
+                    const text = "가능한 글자수는 최대 200자 입니다."
+                    this.$emit("alertModal", text);
+                    return false;
+                }
+
                 this.$store.commit("addOneItem", this.newTodoItem);
                 this.clearInput();
                 this.$refs.taskInput.focus();

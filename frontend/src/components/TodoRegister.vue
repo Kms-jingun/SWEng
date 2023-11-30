@@ -9,7 +9,7 @@
             <div>
                 <label for="password">생년월일: </label>
                 <input id="password" placeholder="ex)990319" type="password" v-model="this.password"
-                       maxlength="20"
+                       maxlength="6"
                 />
             </div>
             <button type="submit">
