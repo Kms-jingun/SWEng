@@ -5,7 +5,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 .header {
@@ -54,9 +55,11 @@ button{
 }
 
 #username {
-    margin-left: 32px; /* 원하는 만큼의 여백을 설정 */
+    margin-top: 40px;
+    margin-left: 16px; /* 원하는 만큼의 여백을 설정 */
     margin-bottom: 10px;
 }
+
 
 #password{
     margin-bottom: 16px;
@@ -141,18 +144,6 @@ button{
     width: 500px;
     color: #000000;
     word-wrap: break-word;
-}
-
-.list__right {
-    /* 오른쪽 영역 스타일링 */
-}
-
-.list__delete {
-    /* 삭제 버튼 스타일링 */
-}
-
-.list__date {
-    /* 날짜 표시 스타일링 */
 }
 
 /* TodoRegister 컴포넌트에 대한 스타일링 */

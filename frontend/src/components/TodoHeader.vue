@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <h1 class="logo">
+        <h1 class="logo">Todo List
             <span class="blind"></span>
         </h1>
 
