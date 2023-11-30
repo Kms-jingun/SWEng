@@ -145,6 +145,7 @@ const setIsRegister = (state) => {
 
 // 로그아웃 상태로 전환
 const logOut = (state) => {
+    state.todoOldestOrder = false;
     state.isLogin = false;
     state.userName = "";
 }

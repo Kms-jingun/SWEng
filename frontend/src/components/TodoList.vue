@@ -1,28 +1,27 @@
 <template>
-    <transition-group name="list" tag="ul" class="list" v-bind:class="listempty">
-      <li class="list__item" v-for="(todoItem, index) in this.storedTodoItems" v-bind:key="todoItem.item">
-        <div class="list__content">
-          <input type="checkbox" v-bind:id="todoItem.item" v-bind:checked="todoItem.completed === true" v-on:change="toggleComplete({todoItem})" />
-          <label v-bind:for="todoItem.item" class="list__label">
-            <span class="icon-check"></span>
-            <p class="list__text">{{ todoItem.item }}</p>
-          </label>
-        </div>
+  <transition-group name="list" tag="ul" class="list" v-bind:class="listempty">
+    <li class="list__item" v-for="(todoItem, index) in this.storedTodoItems" v-bind:key="todoItem.item">
+      <div class="list__content">
+        <input type="checkbox" v-bind:id="todoItem.item" v-bind:checked="todoItem.completed === true" v-on:change="toggleComplete({todoItem})" />
+        <label v-bind:for="todoItem.item" class="list__label">
+          <span class="icon-check"></span>
+          <p class="list__text">{{ todoItem.item }}</p>
+        </label>
+      </div>
   
-              <div class="list__right">
+      <div class="list__right">
                   <!-- 삭제버튼
                   클릭되면 removeTodo를 호출한다.  -->
-                  <button class="list__delete" v-on:click="removeTodo({todoItem, index})">
-                    <span>삭제</span>
-                    <div class="blind">Delete</div>
-                  </button>
-                  
+        <button class="list__delete" v-on:click="removeTodo({todoItem, index})">
+          <span>삭제</span>
+          <div class="blind">Delete</div>
+        </button> 
                   <!-- 입력된 날짜 -->
-                  <p class="list__date">{{ todoItem.date }}</p>
-              </div>
-          </li>
-      </transition-group>
-  </template>
+        <p class="list__date">{{ todoItem.date }}</p>
+      </div>
+    </li>
+  </transition-group>
+</template>
 
 <script>
 import { mapGetters } from "vuex";
