@@ -86,7 +86,7 @@ button{
 
 .add__input {
     /* 투두 아이템을 추가하는 입력 필드 스타일링 */
-    width: 80%; /* 가로 너비 */
+    width: 66%; /* 가로 너비 */
     padding: 5px; /* 내부 패딩 */
     margin-right: 10px; /* 오른쪽 마진 */
 }

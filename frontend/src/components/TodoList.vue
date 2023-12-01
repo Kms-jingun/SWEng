@@ -1,14 +1,21 @@
 <template>
   <transition-group name="list" tag="ul" class="list" v-bind:class="listempty">
-    <li class="list__item" v-for="(todoItem, index) in this.storedTodoItems" v-bind:key="todoItem.item">
-      <div class="list__content">
+    <li class="list__item" v-for="(todoItem, index) in this.storedTodoItems" :key="todoItem.id">
+      <!-- 체크박스 컨테이너 -->
+      <div class="checkbox-container">
         <input type="checkbox" v-bind:id="todoItem.item" v-bind:checked="todoItem.completed === true" v-on:change="toggleComplete({todoItem})" />
         <label v-bind:for="todoItem.item" class="list__label">
           <span class="icon-check"></span>
-          <p class="list__text">{{ todoItem.item }}</p>
         </label>
       </div>
-  
+      <!-- ID 표시 -->
+      <!-- <div class="list__id">{{ todoItem.id }}</div> -->
+
+      <!-- 텍스트 컨테이너 -->
+<!--      <p class="list__text">{{ todoItem.item }}</p>-->
+      <p :class="{ 'list__text': true, 'text-completed': todoItem.completed }">{{ todoItem.item }}</p>
+
+
       <div class="list__right">
                   <!-- 삭제버튼
                   클릭되면 removeTodo를 호출한다.  -->
@@ -50,38 +57,39 @@ import { mapMutations } from "vuex";
 .list__item {
   display: flex;
   align-items: center; /* Aligns items vertically in the center */
-  justify-content: space-between; /* Aligns items to the start of the container */
+  justify-content: flex-start; /* Aligns items to the start of the container */
+}
+
+.checkbox-container {
+  flex-shrink: 0; /* Prevents checkbox from shrinking */
+  margin-right: 650px; /* Adjusts the space between checkbox and the text */
+}
+
+.list__id {
+  margin-right: auto; /* ID를 왼쪽으로 밀기 */
+  font-weight: bold;
 }
 
 .list__text {
   flex-grow: 1; /* Allows text to take up remaining space */
   text-align: justify; /* Justifies text to both edges */
   word-wrap: break-word;
+  color: black;
 }
 
-.checkbox-container {
-  flex-shrink: 0; /* Prevents checkbox from shrinking */
-  margin-right: 600px; /* Adjusts the space between checkbox and the text */
-}
-
-.list__actions {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* This will center the delete button vertically */
-  flex-direction: column; /* Aligns children (date and delete button) in a column */
+.text-completed {
+  color: rgba(19, 17, 17, 0.48); /* 텍스트 흐림 효과 */
+  text-decoration: line-through; /* 취소선 */
 }
 
 .list__date{
   margin-top: 20px;
+  font-weight: bold;
 }
 
 .list__delete {
   margin-left: 500px; /* Adjusts the space between the date and the delete button */
-}
-
-.text-completed {
-  color: #c0c0c0;
-  text-decoration: line-through;
+  font-weight: bold;
 }
 
 </style>
