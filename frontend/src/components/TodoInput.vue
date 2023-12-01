@@ -18,7 +18,7 @@
 
             <!-- 엔터 대신 해당 버튼이 클릭되도 똑같이 동작한다. -->
             <button class="add__buttonn" v-on:click="addTodoItem">
-                <span class="blind">Add</span>
+                <span>추가</span>
             </button>
         </div>
     </div>
